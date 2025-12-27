@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#020202" />
+    <title>KONKRED AUDIT | AI Asset Valuation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              cyber: {
+                black: '#020202',
+                dark: '#0a0a0a',
+                gray: '#18181b', // Slightly lighter for better contrast
+                red: '#ff2a2a',
+                redDim: '#450a0a',
+                cyan: '#00f0ff',
+                cyanDim: '#083344',
+                green: '#0aff00',
+                greenDim: '#052e00',
+                orange: '#ff8a00',
+                orangeDim: '#431407',
+              }
+            },
+            backgroundImage: {
+              'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            },
+            boxShadow: {
+              'neon-red': '0 0 5px theme("colors.cyber.red"), 0 0 20px theme("colors.cyber.redDim")',
+              'neon-cyan': '0 0 5px theme("colors.cyber.cyan"), 0 0 20px theme("colors.cyber.cyanDim")',
+              'neon-green': '0 0 5px theme("colors.cyber.green"), 0 0 20px theme("colors.cyber.greenDim")',
+              'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            },
+            dropShadow: {
+              'glow-red': '0 0 10px rgba(255, 42, 42, 0.5)',
+              'glow-cyan': '0 0 10px rgba(0, 240, 255, 0.5)',
+              'glow-green': '0 0 10px rgba(10, 255, 0, 0.5)',
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'scan': 'scan 4s linear infinite',
+              'scan-fast': 'scan 2s linear infinite',
+              'glitch': 'glitch 1s linear infinite',
+              'flicker': 'flicker 0.15s infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'spin-reverse-slower': 'spin 18s linear infinite reverse',
+              'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+              'modal-open': 'modalOpen 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'hologram-up': 'hologramUp 0.6s ease-out forwards',
+              'decode': 'decode 0.5s steps(10, end)',
+              'fade-in-slow': 'fadeIn 2s ease-out forwards',
+              'stroke-draw': 'strokeDraw 2s ease-out forwards',
+            },
+            keyframes: {
+              scan: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              flicker: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0.8' },
+              },
+              modalOpen: {
+                '0%': { opacity: '0', transform: 'scale(0.95) translateY(10px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              },
+              hologramUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px) scaleY(0.9)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scaleY(1)' },
+              },
+              glitch: {
+                '0%, 100%': { transform: 'translate(0)' },
+                '20%': { transform: 'translate(-2px, 2px)' },
+                '40%': { transform: 'translate(-2px, -2px)' },
+                '60%': { transform: 'translate(2px, 2px)' },
+                '80%': { transform: 'translate(2px, -2px)' },
+              },
+              fadeIn: {
+                'from': { opacity: '0' },
+                'to': { opacity: '1' },
+              },
+              strokeDraw: {
+                'from': { 'stroke-dashoffset': '1000' },
+                'to': { 'stroke-dashoffset': '0' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "next/": "https://esm.sh/next@^16.0.10/",
+    "playwright": "https://esm.sh/playwright@^1.57.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
